@@ -165,7 +165,7 @@ footer{
 @media screen and (max-width: 1024px) {
     .sidenav a {
         margin: 30px 45px 0 0;
-        font-weight: lighter;
+        font-weight: normal;
         font-size: 16px;
     }
 }
@@ -184,6 +184,7 @@ footer{
     }
     .sidenav a {
         margin: 25px 10px 40px 0;
+        font-weight: bolder;
         font-size: 20px;
         color: #818181;
     }
