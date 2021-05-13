@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="static/images/favicon.ico">
+    <link rel="stylesheet" href="static/css/event.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.css">
+    <title>Coding Hub | Events</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">
+                <img src="static/images/logo.png" alt="logo">
+            </a>
+            <div id="mySidenav" class="sidenav">
+                <a class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="index.html">HOME</a>
+                <a href="development.html">DEVELOPMENT</a>
+                <a href="event.html" class="active">EVENTS</a>
+                <a href="contact.html">CONTACT</a>
+            </div>
+            <span class="openbtn" onclick="openNav()">&#9776;</span>
+        </nav>
+    </header>
+    <main>
+        <div class="project">
+            <center><h1><span>TECHTONIC</span> EVENTS</h1></center>
+            <h2>CROSS CODE <span style="text-align: right;"><a href="https://drive.google.com/file/d/1xgUEE0iCLmKwd7DuqoKgn0L0OBFAQnlA/view?usp=sharing" target="_blank">Click here to read</a></span></h2><hr>
+            <div class="events">
+                <div class="type">
+                    <img src="static/images/event1.png" alt="event">
+                    <section class="info">
+                        <span>Round 1: Word Puzzle</span>
+                        <p>We will provide you word puzzle which has various coding related keywords in it. The team which finds most words in least time will qualify for next round. <br> (Time Limit : 10 minutes.)</p>
+                    </section>
+                </div>
+                <div class="type">
+                    <img src="static/images/event2.png" alt="event">
+                    <section class="info">
+                        <span>Round 2: KBC</span>
+                        <p>Coding Quiz in which logical problems will be asked. There will be multiple-choice questions with a single correct answer. Team scoring the maximum points qualify for next round.</p>
+                    </section>
+                </div>
+                <div class="type">
+                    <img src="static/images/event3.png" alt="event">
+                    <section class="info">
+                        <span>Round 3: Design Pattern</span>
+                        <p>Each team will be given problem statement whose output is a particular pattern. Team has to design the pattern in minimum possible time. Team must be able to explain their logic. <br> (Time Limit : 2 hours.)</p>
+                    </section>
+                </div>
+            </div>
+            <h2>CODE BUSTERS <span style="text-align: right;"><a href="https://drive.google.com/file/d/1VV8d_eaRCM0oWi6AxgA-gV58RIkmbjx0/view?usp=sharing" target="_blank">Click here to read</a></span></h2><hr>
+            <div class="events">
+                <div class="type">
+                    <img src="static/images/event4.png" alt="event">
+                    <section class="info">
+                        <span>Round 1: jumbled Code</span>
+                        <p>You will be provided code which has all the lines jumbled. Output of the code will be provided. Your task is to arrange code as per the output required. <br> (Time Limit : 25 minutes.)</p>
+                    </section>
+                </div>
+                <div class="type">
+                    <img src="static/images/event5.png" alt="event">
+                    <section class="info">
+                        <span>Round 2: Debugging</span>
+                        <p>Code having syntax, semantic, compile time or runtime errors will be given to participants in this round. You will have to debug the errors to make the code work fine. Team scoring the maximum points by debugging in minimum time qualify.</p>
+                    </section>
+                </div>
+                <div class="type">
+                    <img src="static/images/event6.png" alt="event">
+                    <section class="info">
+                        <span>Round 3: Code Relay</span>
+                        <p>There will be 3 problem-statements given to you which you have to solve within 1 hour. You will be given problem-statements after an interval of 20 min each. If anyone solve problem-statement before 20 min then he is eligible for solving next problem-statement. Participants who will solve all the problem-statements in minimum time will be Winner.</p>
+                    </section>
+                </div>
+            </div>
+            <h2>YOU ON WEB <span style="text-align: right;"><a href="https://drive.google.com/file/d/1V8W7nIm6sG-3VqTXdEZ9iXJiz9Mex6P1/view?usp=sharing" target="_blank">Click here to read</a></span></h2><hr>
+            <div class="events">
+                <div class="type">
+                    <img src="static/images/event7.png" alt="event">
+                    <section class="info">
+                        <span>Round 1</span>
+                        <p>This round will consists of 30 questions on HTML and CSS. All questions will be in the format of multiple choice questions. <br> (Time Limit : 10 minutes.)</p>
+                    </section>
+                </div>
+                <div class="type">
+                    <img src="static/images/event8.png" alt="event">
+                    <section class="info">
+                        <span>Round 2</span>
+                        <p>In this round, the selected participants from Round 1 will need to design an interactive website using any language from HTML, CSS, JavaScript.</p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="follow">
+            <p>FOLLOW US</p>
+            <a href="https://in.linkedin.com/in/coding-hub-0485691a2" target="_blank">                
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/codinghubteam" target="_blank">        
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.instagram.com/__codinghub__/" target="_blank">                
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+        <span>&copy; Coding Hub SKNCOE</span>
+    </footer>
+    <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+
+    // Close hide the sidenav
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</body>
+</html>

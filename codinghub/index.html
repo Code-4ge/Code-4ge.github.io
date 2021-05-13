@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="static/images/favicon.ico">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.css">
+    <title>Coding Hub</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">
+                <img src="static/images/logo.png" alt="logo">
+            </a>
+            <div id="mySidenav" class="sidenav">
+                <a class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="index.html" class="active">HOME</a>
+                <a href="development.html">DEVELOPMENT</a>
+                <a href="event.html">EVENTS</a>
+                <a href="contact.html">CONTACT</a>
+            </div>
+            <span class="openbtn" onclick="openNav()">&#9776;</span>
+        </nav>
+        <div class="intro">
+            <div class="intro_text">
+                <h3>EMPOWERING<br>CODING CULTURE</h3>
+                <p>Passion&nbsp;&#9679;&nbsp;Patience&nbsp;&#9679;&nbsp;Performance</p>
+            </div>
+            <img src="static/images/intro.gif">
+        </div>
+    </header>
+    <main>
+        <div class="info"><br><br><br>
+            <span>New discoveries come to you</span>
+            <p>A Platform Where We Explore Our Technical Skills. We are the group of coders and developers who are highly enthusiastic towards new technologies and developing software. We want to create jolly and diverse community where everyone has a voice and feels comfortable to express and share their ideas.</p>
+            <div class="our_teams">
+                <a href="team.html" style="text-decoration: none;">
+                    <section class="team">
+                        <i class="fas fa-users"></i><br>
+                        <span>OUR TEAM</span>
+                    </section>
+                </a>
+                <a href="gallery.html" style="text-decoration: none;">
+                    <section class="gallery">
+                        <i class="fas fa-th-large"></i><br>
+                        <span>GALLERY</span>
+                    </section>
+                </a>
+            </div>
+        </div>
+        <div class="about">
+            ABOUT US
+            <div class="about_info">
+                <section class="text" id="a_text">
+                    <p>A Platform Where We Explore Our Technical Skills. A team which is fully passionate about technology & new ideas and always try to give their best performance. Coding hub creates an environment where college students can show-case their coding , technical and project managing skills.</p>
+                </section>
+                <img src="static/images/aboutus.gif" alt="About-Us">
+            </div>
+        </div>
+        <div class="mission">
+            MISSION
+            <div class="about_info">
+                <img src="static/images/mission.gif" alt="About-Us">
+                <section class="text" id="m_text">
+                    <p>Our Mission is to create a fun and supportive environment where we improve programming skills together. We want to create jolly and diverse community where everyone has a voice and feels comfortable to express and share their ideas. We believe learning is more fun and efficient when we help each other along the way.</p>
+                </section>
+            </div>
+        </div>
+        <div class="mission" id="vision">
+            VISION
+            <div class="about_info">
+                <section class="text" id="v_text">
+                    <p> Our Vision is to produce individuals who are skilled in their respective fields, dedicated for hard work and determined to achieve success.
+                        <ul>
+                            <li>
+                                Excellence is our Passion.
+                            </li>
+                            <li>
+                                Patience tests our Dedication.
+                            </li>
+                            <li>
+                                Performance proves our Success. </p>
+                            </li>
+                        </ul>
+                </section>
+                <img src="static/images/vision.gif" alt="About-Us">
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="follow">
+            <p>FOLLOW US</p>
+            <a href="https://in.linkedin.com/in/coding-hub-0485691a2" target="_blank">                
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/codinghubteam" target="_blank">        
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.instagram.com/__codinghub__/" target="_blank">                
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+        <span>&copy; Coding Hub SKNCOE</span>
+    </footer>
+    <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+
+    // Close hide the sidenav
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="static/images/favicon.ico">
+    <link rel="stylesheet" href="static/css/contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.css">
+    <title>Coding Hub | Contact</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">
+                <img src="static/images/logo.png" alt="logo">
+            </a>
+            <div id="mySidenav" class="sidenav">
+                <a class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="index.html">HOME</a>
+                <a href="development.html">DEVELOPMENT</a>
+                <a href="event.html">EVENTS</a>
+                <a href="contact.html" class="active">CONTACT</a>
+            </div>
+            <span class="openbtn" onclick="openNav()">&#9776;</span>
+        </nav>
+        <div class="contact">
+            <div class="call">
+                <section>
+                    <i class="fas fa-phone-alt"></i>
+                </section>
+                <section>
+                    <h4>CALL US</h4>
+                    <p>+91 ‭7870443710‬</p>
+                </section>
+            </div>
+            <div class="call">
+                <section>
+                    <i class="fas fa-envelope"></i>
+                </section>
+                <section>
+                    <h4>MAIL US</h4>
+                    <p>codinghubteam@gmail.com</p>
+                </section>
+            </div>
+            <div class="call">
+                <section>
+                    <i class="fas fa-map-marker-alt"></i>
+                </section>
+                <section>
+                    <h4>LOCATION</h4>
+                    <p>Smt. Kashibai Navale College of Engineering, 2, Gangadhar S Walse Patil Rd, Ambegaon Bk, Pune, MH-411041</p>
+                </section>
+            </div>
+            <div class="follow">
+                <section>
+                    <a href="https://in.linkedin.com/in/coding-hub-0485691a2" target="_blank">                
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/codinghubteam" target="_blank">        
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.instagram.com/__codinghub__/" target="_blank">                
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </section>
+            </div>
+        </div>
+    </header>
+    <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+
+    // Close hide the sidenav
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</body>
+</html>

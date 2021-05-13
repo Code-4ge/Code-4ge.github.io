@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f5f5f5;
+}
+
+.active{
+    color: #fc42af !important;
+}
+
+header{
+    width: 100%;
+    background: linear-gradient(330deg, #132692, #1b499e, #cb29fc, #f7439b);
+}
+
+nav{
+    line-height: 25px;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+}
+
+nav img{
+    width: 195px;
+    height: 62px;
+    margin: 10px 0 0 65px;
+}
+
+.sidenav {
+    display: flex;
+    transition: 0.5s;
+}
+
+.sidenav a {
+    margin: 30px 65px 0 0;
+    text-decoration: none;
+    font-family: sans-serif !important;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover{
+    color: #fc42af;
+}
+
+.sidenav .closebtn {
+    display: none;
+}
+
+.openbtn {
+    height: fit-content;
+    color: white;
+    display: none;
+}
+
+.team{
+    font-family: 'Krona One', sans-serif;
+    overflow: hidden;
+    margin: 50px 100px;
+}
+.team h1{
+    font-size: 50px;
+    letter-spacing: 10px;
+}
+.team h2{
+    margin-top: 50px;
+    font-weight: lighter;
+}
+
+.coordinator{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.member{
+    width: 200px;
+    height: 310px;
+    text-align: center;
+    margin: 40px auto ;
+    background-color: white;
+    box-shadow: 2px 2px 5px rgb(71, 71, 71);
+}
+.image{
+    width: 200px;
+    height: 190px;
+    background-repeat: no-repeat !important;
+    background-size: 100% 100% !important;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%);
+}
+.image h3{
+    position: absolute;
+    margin-top: 120px;
+    font-size: 13px;
+    font-weight: lighter;
+    background-color: white;
+    padding: 3px 10px;
+}
+.info{
+    margin: 10px;
+    font-size: 15px;
+    font-family: Verdana, sans-serif;
+}
+.info span{
+    font-size: 17px;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+}
+.info p{
+    margin-top: 10px;
+    font-size: 12px;
+    color: rgb(65, 65, 65);
+    font-style: italic;
+}
+#link{
+    margin:20px 0 5px 0 ;
+}
+#link a{
+    font-size: 22px;
+    margin: 0 10px;
+    color: black;
+    text-decoration: none;
+}
+
+.grid{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 50px;
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 30px 100px;
+    background-color: #dbdbdb;
+}
+.follow{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+.follow a{
+    text-decoration: none;
+    margin: 0 10px;
+}
+.follow a i{
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+    margin-top: 15px;
+}
+
+
+
+@media screen and (max-width: 1024px) {
+    .sidenav a {
+        margin: 30px 45px 0 0;
+        font-weight: lighter;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .sidenav {
+        width: 0;
+        height: 100%;
+        position: fixed;
+        display: block;
+        z-index: 1;
+        padding-top: 65px;
+        overflow-x: hidden;
+        text-align:center;
+        background-color: #111;
+    }
+    .sidenav a {
+        margin: 25px 10px 40px 0;
+        font-size: 20px;
+        color: #818181;
+    }
+    .sidenav .closebtn {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        right: 30px;
+        font-size: 36px;
+        margin-left: 50px;
+        display: block;
+    }
+    nav img{
+        width: 170px;
+        height: 50px;
+        margin: 10px 0 0 20px;
+    }
+    .openbtn {
+        cursor:pointer;
+        font-size:30px;
+        padding: 0%;
+        margin: 20px 50px 0 0;
+        display: block;
+    }
+    .team{
+        margin: 50px 50px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .coordinator{
+        display: block;
+    }
+    .team{
+        margin: 50px 15px;
+    }
+    .team h1{
+        font-size: 35px;
+    }
+    .team h2{
+        font-size: 20px;
+    }
+    footer{
+        padding: 40px 0;
+        font-size: 15px;
+    }
+}
