@@ -13,6 +13,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
 </head>
 <body>
+
+    <!-- pre loader -->
     <div id="loader">
         <svg class="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100" height="100" viewBox="0 0 100 100" xml:space="preserve">
             <rect x="0" y="0" width="100%" height="100%" fill="transparent"></rect>
@@ -33,6 +35,8 @@
             </g>
         </svg>
     </div>
+    
+    <!-- nav bar -->
     <nav class="menu">
         <span><a href="/">
             <svg class="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100" height="100" viewBox="0 0 100 100" xml:space="preserve">
@@ -62,6 +66,7 @@
         <span><a href="#contact" title="Contact"><i class="fa-solid fa-phone"></i></a></span>
     </nav>
 
+    <!-- About Me -->
     <main id='about' class="about">
         <h1>About Me</h1>
         <div class="me">
@@ -70,7 +75,7 @@
                     <h2 id="greet">Hello!</h2>
                     <h2>I'm Neeraj <span style="background-color: #fab005; border-radius: 2px; color:#0a0013">Panmand</span></h2>
                     <span id="auto_type"></span><br/><br/>
-                    <p style="font-size: 20px; font-weight: 200; text-align: justify;">I am a self-taught Full-Stack Developer and Cyber Enthusiast. I have gained a vast amount of experience in developing modern websites and web designs. Currently, I’m focused on practicing Pen-testing and Bug Bounty.</p>
+                    <p style="font-size: 20px; font-weight: 200; text-align: justify;">I am a Full-Stack Developer and Cyber Enthusiast. I have gained a vast amount of experience in developing modern websites and web designs. Currently, I’m focused on practicing Pen-testing and Bug Bounty.</p>
                 </p>
                 <button onclick="window.open('#skill', '_self')" class="explore_me">
                     <span style="margin: 0 10px 0 0; padding: 2px 5px; border-radius: 50%; border: 1px solid #707070;"><i class="fa-solid fa-angle-down"></i></span>Explore Me
@@ -82,6 +87,7 @@
         </div>
     </main>
 
+    <!-- Skills -->
     <main id='skill' class="skill">
         <h1>Skills</h1>
         <div class="skill_set">
@@ -122,6 +128,7 @@
         </div>
     </main>
 
+    <!-- Projects -->
     <main id='projects' class="project">
         <h1>Projects</h1>
         <div class="proj_contain" style="margin-top: 100px;">
@@ -190,6 +197,7 @@
         </div>
     </main>
 
+    <!-- Education, Expirence, and Certifications-->
     <main id="experience" class="experience">
         <h1>Experience</h1>
         <div class="exp_card exp_contain" style="margin-top: 100px;">
@@ -240,6 +248,7 @@
         </div>
     </main>
 
+    <!-- Contact Me -->
     <main id="contact" class="contact">
         <h1>Contact</h1>
         <div class="contact_card">
@@ -259,11 +268,13 @@
         </div>
     </main>
 
+    <!-- display email vertically -->
     <div class="email">
         <p>code-4ge@mbox.re</p>
         <hr/>
     </div>
 
+    <!-- display this for narrow devices -->
     <div class="non-responsive">
         <svg width="744" height="478" viewBox="0 0 744 478" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="non-responsive" clip-path="url(#clip0_2_68)">
@@ -376,6 +387,7 @@
         <p>Sorry, this site is not responsive <br/> please, open it in desktop / Laptop.</p>
     </div>
 
+    <!-- function to load pre loader -->
     <script>
         document.onreadystatechange = function() {
             if (document.readyState !== "complete") {
@@ -393,6 +405,5 @@
     </script>
 
     <script src="./assets/app.js"></script>
-
 </body>
 </html>
