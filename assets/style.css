@@ -16,8 +16,30 @@
 *{
     margin: 0;
     padding: 0;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth;                            /* custom scrollbar works on Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: var(--yellow) var(--light-bg);
 }
+
+/* custom scrollbar Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--light-bg);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--yellow);
+    border-radius: 20px;
+}
+
+*::-webkit-scrollbar-thumb:hover{
+    background-color: #fab00575;
+}
+
+
 
 body{
     cursor: default;
@@ -36,9 +58,11 @@ body main{
     font-family: 'Fredoka', sans-serif;
     overflow-x: hidden;
     background-color: transparent;
-    color: white;
+    color: var(--white);
 }
 
+
+/* pre loader */
 
 #loader{
     width: 100vw;
@@ -58,13 +82,13 @@ body main{
 }
 
 
+/* design and animate logo */
 
 .logo{
     width: 35px;
     height: 40px;
     border-radius: 5px;
 }
-
 
 #circle{
     animation: dot 1.5s linear infinite;
@@ -79,7 +103,7 @@ body main{
 }
 
 
-
+/* style nav bar */
 
 .menu{
     width: fit-content;
@@ -101,8 +125,11 @@ body main{
 
 .menu a i{
     font-size: 22px;
-    color: #fab005;
+    color: var(--yellow);
 }
+
+
+/* page heading style */
 
 h1{
     position: absolute;
@@ -112,8 +139,11 @@ h1{
     letter-spacing: 2;
     place-self: start;
     z-index: -1;
-    color: #454446c2;
+    color: #3b3b3bc2;
 }
+
+
+/* style about section */
 
 .about .me{
     flex: 1;
@@ -143,17 +173,17 @@ h1{
     font-size: 15px;
     margin-top: 50px;
     border-radius: 2px;
-    border: 1px solid #707070;
+    border: 1px solid var(--gray);
     background-color: transparent;
-    color: #707070;
+    color: var(--gray);
 }
 
 #auto_type{
     font-size: 25px; 
     font-weight: 500; 
     letter-spacing: 3px;
-    color: #fab005; 
-    border-right: 2px solid white;
+    color: var(--yellow); 
+    border-right: 2px solid var(--white);
     animation: blink 1s infinite;
 }
 
@@ -164,7 +194,7 @@ h1{
     padding: 3px;
     border-radius: 50%;
     box-shadow: 0 0 10px 2px rgb(0, 0, 0);
-    background-color: #fab005;
+    background-color: var(--yellow);
 }
 
 .about .image img{
@@ -174,13 +204,12 @@ h1{
 }
 
 
-
 @keyframes blink {
     from, to {
         border-right: 2px solid transparent;
     }
     50% {
-        border-right: 2px solid white;
+        border-right: 2px solid var(--white);
     }
 }
 
@@ -235,7 +264,7 @@ h1{
 }
 
 #prog_lang span:hover{
-    background-color: #fab005;
+    background-color: var(--yellow);
     color: #0a0013;
 }
 
@@ -316,11 +345,11 @@ h1{
     width: 20px;
     height: 20px;
     margin: 15px 5px 0;
-    color: #707070;
+    color: var(--gray);
 }
 
 .proj_info a svg:hover{
-    color: #fab005;
+    color: var(--yellow);
 }
 
 
@@ -334,7 +363,7 @@ h1{
     border-radius: 5px;
     line-height: 25px;
     box-shadow: 0 20px 30px -15px #06001a7c;
-    background-color: #1b1224;
+    background-color: var(--light-bg);
 }
 
 .info:hover{
@@ -503,19 +532,19 @@ h1{
 
 .social i{
     font-size: 30px;
-    color: white;
+    color: var(--white);
     margin: 30px 30px 20px 0;
 }
 
 .social i:hover{
-    color: #fab005;
+    color: var(--yellow);
 }
 
 .social p{
     margin-top: 120px;
     font-size: 13px;
     font-weight: lighter;
-    color: #707070;
+    color: var(--gray);
 }
 
 .resume{
@@ -536,7 +565,7 @@ h1{
 }
 
 .resume a:nth-of-type(1){
-    background-color: #fab005;
+    background-color: var(--yellow);
     border: 2px solid #0a0013;
     box-shadow: 0 0 5px 0 #c9c9c942;
 }
@@ -546,14 +575,14 @@ h1{
 }
 
 .resume a:nth-of-type(2){
-    color: #fab005;
-    border: 2px solid #fab005;
+    color: var(--yellow);
+    border: 2px solid var(--yellow);
     background-color: transparent;
 }
 
 .resume a:nth-of-type(2):hover{
-    color: white;
-    border: 2px solid white;
+    color: var(--white);
+    border: 2px solid var(--white);
 }
 
 
@@ -571,7 +600,7 @@ h1{
     font-style: italic;
     letter-spacing: 2px;
     font-weight: lighter;
-    color: white;
+    color: var(--white);
     right: 25px;
     bottom: 0;
     writing-mode: vertical-lr;
@@ -668,6 +697,7 @@ h1{
 
 
 
+/* for narrow devices */
 
 .non-responsive{
     position: fixed;
@@ -677,7 +707,7 @@ h1{
     font-size: 20px;
     font-weight: 100;
     letter-spacing: 1px;
-    color: white;
+    color: var(--white);
     top: 0;
     left: 0;
     z-index: 2;
