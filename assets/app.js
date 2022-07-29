@@ -43,3 +43,12 @@ function loop () {
 }
 
 loop()
+
+function myProjects() {
+  var x = document.getElementById("show_more");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+} 
