@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
 
@@ -69,6 +70,13 @@
     <!-- About Me -->
     <main id='about' class="about">
         <h1>About Me</h1>
+        <div id="ring" class="r1"></div>
+        <div id="ring" class="r2"></div>
+        <div id="ring" class="r3"></div>
+        <div id="ring" class="r4"></div>
+        <div id="triangle"></div>
+        <div id="square" class="s1"></div>
+        <div id="square" class="s2"></div>
         <div class="me">
             <div>
                 <p>
@@ -83,7 +91,7 @@
             </div>
         </div>
         <div class="image">
-            <img src="./assets//img/whoami.jpg" alt="neeraj">
+            <img src="./assets//img/whoami.png" alt="neeraj">
         </div>
     </main>
 
@@ -97,6 +105,7 @@
             <div id="prog_lang">
                 <span id="cpp">C++</span>
                 <span id="python">Python</span>
+                <span id="java">Java</span>
                 <span id="js">JavaScript</span>
                 <span id="html">HTML</span>
                 <span id="css">CSS</span>
@@ -132,7 +141,7 @@
     <main id='projects' class="project">
         <h1>Projects</h1>
         <div class="proj_contain" style="margin-top: 100px;">
-            <div class="proj_info">
+            <div class="proj_info" data-aos="fade-right">
                 <p style="color: #fab005;">Intership Project</p>
                 <h2>OTP base Authentication</h2>
                 <div class="info">I built an OTP base login authentication for an Employee Self-Service (ESS) system at Bajaj. Used an API (digimate) to send OTP via SMS. I designed a front-end (UI) prototype using Angular.</div>
@@ -141,11 +150,11 @@
                     <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><title>GitHub</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                 </a>
             </div>
-            <div id="bal" class="proj_img"><div></div></div>
+            <div id="bal" class="proj_img" data-aos="fade-left"><div></div></div>
         </div>
         <div class="proj_contain">
-            <div id="cyberchef" class="proj_img"><div></div></div>
-            <div class="proj_info">
+            <div id="cyberchef" class="proj_img" data-aos="fade-right"><div></div></div>
+            <div class="proj_info" data-aos="fade-left">
                 <p style="color: #fab005;">Personal Project</p>
                 <h2>Cyber Chef</h2>
                 <div class="info">Cyber-Chef is a dynamic web app that influences cyber enthusiasts by serving informative posts and free resources (like books, articles, etc.). I built this web app to deep dive into web development using Python.</div>
@@ -156,20 +165,7 @@
             </div>
         </div>
         <div class="proj_contain">
-            <div class="proj_info">
-                <p style="color: #fab005;">TE Mini Project</p>
-                <h2>PAC-MAN Game</h2>
-                <div class="info">Built a classic desktop game application with interactive animation using the Python language and the Pygame module. By implementing it, I learned quite a bit more about the PyGame module.</div>
-                <p style="color: #707070;">Python&nbsp;&nbsp;&nbsp;Pygame&nbsp;&nbsp;&nbsp;VSCode&nbsp;&nbsp;&nbsp;Figma</p>
-                <a href="https://github.com/Code-4ge/Pacman-Game" target="_blank" rel="noopener noreferrer">
-                    <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><title>GitHub</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                </a>
-            </div>
-            <div id="pacman" class="proj_img"><div></div></div>
-        </div>
-        <div class="proj_contain">
-            <div id="codehub" class="proj_img"><div></div></div>
-            <div class="proj_info">
+            <div class="proj_info" data-aos="fade-right">
                 <p style="color: #fab005;">Personal Project</p>
                 <h2>Coding Hub</h2>
                 <div class="info">Designed a simple, good-looking, and responsive static website about the Coding Hub from scratch. I learned quite a bit about UI/UX and Sprint Design.</div>
@@ -181,46 +177,146 @@
                     <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><title>External Link</title><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                 </a>
             </div>
+            <div id="codehub" class="proj_img" data-aos="fade-left"><div></div></div>
         </div>
         <div class="proj_contain">
-            <div class="proj_info">
+            <div id="blooddonor" class="proj_img" data-aos="fade-right"><div></div></div>
+            <div class="proj_info" data-aos="fade-left">
                 <p style="color: #fab005;">BE Project</p>
                 <h2>Blood Donor</h2>
                 <div class="info">Blood Donor is a full-stack web application for users who require blood or who are willing to donate blood. BloodDonor promotes voluntary blood donations.</div>
                 <p style="color: #707070;">React&nbsp;&nbsp;SpringBoot&nbsp;&nbsp;PostgreSQL&nbsp;&nbsp;Axios&nbsp;&nbsp;Postman</p>
-                <!-- <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/Code-4ge/Voluntary-Blood-Donor-UI" target="_blank" rel="noopener noreferrer">
                     <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><title>GitHub</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                </a> -->
-                <a style="cursor: default; color: white; font-family: 'IBM Plex Mono', monospace;"><span style="letter-spacing: 1px;">WORK IN PROGRESS</span></a>
+                </a>
             </div>
-            <div id="blooddonor" class="proj_img"><div></div></div>
+        </div>
+        <div class="more_proj">
+            <button onclick="myProjects()">SHOW MORE</button>
+            <div id="show_more">
+                <div class="card-container">
+                    <div class="card">
+                        <div id="proj_info">
+                            <div class="proj_link">
+                                <p style="color: #fab005;">Personal Project</p>
+                                <div>
+                                    <a href="https://github.com/Code-4ge/GreetOnline" target="_blank" rel="noopener noreferrer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><title>GitHub</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    </a>
+                                    <a href="https://greetonline.herokuapp.com/" target="_blank" rel="noopener noreferrer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><title>External Link</title><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <h3>GreetOnline</h3>
+                            <div class="info txt_justify">GreetOnline helps you to share Wishes and, give them your Best Wishes with online Greeting Card.</div>
+                            <p style="color: #d1d1d1;">Python&nbsp;&nbsp;&nbsp;Flask&nbsp;&nbsp;&nbsp;HTML/CSS&nbsp;&nbsp;&nbsp;JS</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div id="proj_info">
+                            <div class="proj_link">
+                                <p style="color: #fab005;">TE Project</p>
+                                <div>
+                                    <a href="https://github.com/Code-4ge/Pacman-Game" target="_blank" rel="noopener noreferrer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><title>GitHub</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <h3>Pacman</h3>
+                            <div class="info txt_justify">Simple and lightweight desktop game for fun using python.</div>
+                            <p style="color: #d1d1d1;">Python&nbsp;&nbsp;&nbsp;Pygame</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div id="proj_info">
+                            <div class="proj_link">
+                                <p style="color: #fab005;">Personal Project</p>
+                                <div>
+                                    <a href="https://github.com/Code-4ge/Online-Voting-System" target="_blank" rel="noopener noreferrer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><title>GitHub</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <h3>Voting System</h3>
+                            <div class="info txt_justify">Desktop application for online voting system made in python using tkinter. </div>
+                            <p style="color: #d1d1d1;">Python&nbsp;&nbsp;&nbsp;Tkinter&nbsp;&nbsp;&nbsp;MySQL</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div id="proj_info">
+                            <div class="proj_link">
+                                <p style="color: #fab005;">Personal Project</p>
+                                <div>
+                                    <a href="https://github.com/Code-4ge/Rock_Paper_Scissor-GUI" target="_blank" rel="noopener noreferrer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><title>GitHub</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <h3>Rock-Paper-Scissor</h3>
+                            <div class="info txt_justify">Simple, awesome and lightweight desktop game for fun using python.</div>
+                            <p style="color: #d1d1d1;">Python</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div id="proj_info">
+                            <div class="proj_link">
+                                <p style="color: #fab005;">Freelance</p>
+                                <div>
+                                    <a href="https://github.com/Code-4ge/Airline_Reservation_System-frontend" target="_blank" rel="noopener noreferrer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><title>GitHub</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <h3>Airline Reservation System</h3>
+                            <div class="info txt_justify">The web portal is to manage flight information and perform reservations and cancellations and many more.</div>
+                            <p style="color: #d1d1d1;">Angular&nbsp;&nbsp;&nbsp;C#&nbsp;&nbsp;&nbsp;SQL</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div id="proj_info">
+                            <div class="proj_link">
+                                <p style="color: #fab005;">Freelance</p>
+                                <div>
+                                    <a href="https://github.com/Code-4ge/Employee_Management_System-frontend" target="_blank" rel="noopener noreferrer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><title>GitHub</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <h3>Employee Management System</h3>
+                            <div class="info txt_justify">It is a web application that allows us to add, update, delete and search records of an employee working in an organization.</div>
+                            <p style="color: #d1d1d1;">Angular&nbsp;&nbsp;&nbsp;C#(.Net)&nbsp;&nbsp;&nbsp;SQL</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
     <!-- Education, Expirence, and Certifications-->
     <main id="experience" class="experience">
         <h1>Experience</h1>
-        <div class="exp_card exp_contain" style="margin-top: 100px;">
+        <div class="exp_card exp_contain" style="margin-top: 100px;" data-aos="fade-up">
             <div class="headline">
                 <p><span class="circle-angle"><i class="fa-solid fa-chevron-right"></i></span>&nbsp;&nbsp;UNDER&#8210;GRADUATION</p>&nbsp;&nbsp;<hr/>&nbsp;2018 &#8210; 2022
             </div>
             <section>
                 <h2>Savetribai Phule Pune University</h2>
                 <h3>Smt. Kashibai Navale College of Engneering, Pune</h3>
-                <div class="info exp-info">
+                <div class="info exp-info" data-aos="fade-left">
                     <i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;I am pursing a B.E/B.Tech in Computer Science.<br/>
                     <i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;As a Coding Hub member, we organized many events like "CROSS CODE", "CODE BUSTERS", and "YOU ON WEB" in college. I also participated in Internal-SIH-2020.
                 </div>
             </section>
         </div>
-        <div class="exp_card exp_contain">
+        <div class="exp_card exp_contain" data-aos="fade-up">
             <div class="headline"> 
                 <p><span class="circle-angle"><i class="fa-solid fa-chevron-right"></i></span>&nbsp;&nbsp;INTERNSHIP</p>&nbsp;&nbsp;<hr/>&nbsp;September&nbsp;&nbsp;&#8210;&nbsp;&nbsp;October&nbsp;&nbsp;2021
             </div>
             <section>
                 <h2>Bajaj Auto Ltd.</h2>
                 <h3>MIS Intern</h3>
-                <div class="info exp-info">
+                <div class="info exp-info" data-aos="fade-left">
                     <i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;Worked on web development using NodeJS and Angular, where I developed a magnificent and responsive OTP base authentication system with a vernacular system for an ESS System (Ekam).<br/>
                     <i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;Work with a variety of different languages, platforms, frameworks, and content management systems such as JavaScript, TypeScript, Node, Angular, Express, Digimate, Postman, SMS Scrubbing, Gitea <br/>
                     <i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;Communicate with multi-disciplinary teams of engineers, designers on a daily basis.
@@ -228,7 +324,7 @@
             </section>
         </div>
         <div class="exp_card exp_contain">
-            <div class="headline">
+            <div class="headline" >
                 <p><span class="circle-angle"><i class="fa-solid fa-chevron-right"></i></span>&nbsp;&nbsp;CERTIFICATIONS</p>&nbsp;&nbsp;<hr/>
             </div>
             <section class="certificate">
@@ -267,10 +363,15 @@
             </div>
         </div>
     </main>
+    
+    <div class="globe" data-aos="fade-up">
+        <div></div>
+        <img src="/assets/img/globe.png" alt="location">
+    </div>
 
     <!-- display email vertically -->
     <div class="email">
-        <p>code-4ge@mbox.re</p>
+        <p>panmandneeraj@gmail.com</p>
         <hr/>
     </div>
 
@@ -405,5 +506,12 @@
     </script>
 
     <script src="./assets/app.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        offset: 150,
+        duration: 1000,
+      });
+    </script>
 </body>
 </html>
