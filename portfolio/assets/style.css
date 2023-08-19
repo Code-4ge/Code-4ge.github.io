@@ -1,0 +1,414 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+:root{
+    --test-color: #ff0000;
+    --primary-color: #202020;
+    --secondary-color: #f8ce12;
+    --grey: #c5c5c59a;
+    --dark-grey: #3f3f3fbe;
+    --transparent: #ffffff00;
+    --white: #ffffff;
+    --card1: #000080;
+    --card2: #ff5a75;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+nav{
+    padding: 15px 75px 15px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+    overflow: hidden;
+}
+
+nav .logo a{
+    color: white;
+    text-decoration: none;
+    font-family: 'Tilt Prism', cursive;
+    font-size: 40px;
+}
+
+.menu{
+    display: flex;
+    justify-content: center;
+    column-gap: 15px;
+}
+
+nav .menu button{
+    border: none;
+    background: none;
+    font-size: 25px;
+    color: white;
+    display: none;
+}
+
+nav .menu ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    column-gap: 40px;
+}
+
+
+nav .menu ul li a{
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    font-family: 'Kanit', sans-serif;
+}
+
+#hire_me{
+    background-color: white;
+    color: var(--primary-color);
+    padding: 5px 30px;
+    border-radius: 10px;
+}
+
+#hire_me:hover{
+    background-color: var(--secondary-color);
+}
+
+header{
+    width: 100%;
+    height: 560px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    background-color: var(--primary-color);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 30% 90%, 0% 70%);
+    column-gap: 10%;
+}
+
+.name{
+    width: fit-content;
+    /* margin: 50px 0px 0px min(10%, 20px); */
+    margin: 40px 10px 0px 10px;
+}
+
+.name h1, .name h2, .name p{
+    color: var(--grey);
+    font-size: 60px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.name h2{
+    font-size: 40px;
+    color: var(--white);
+}
+
+.name p{
+    font-size: 18px;
+    color: var(--secondary-color);
+}
+
+#about{
+    width: 400px;
+    color: var(--white);
+    margin-top: 15px;
+    font-weight: 200;
+    font-family: 'Poppins', sans-serif;
+}
+
+#resume{
+    cursor: pointer;
+    font-size: 18px;
+    padding: 6px 30px;
+    border-color: var(--secondary-color);
+    background-color: var(--transparent);
+    color: var(--secondary-color);
+    border-width: 0.5px;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+
+#resume:hover{
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.img{
+    width: 400px;
+    height:100%;
+    background: url("./img/img.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 450px;
+    filter: contrast(150%);
+}
+
+section{
+    padding: 20px 60px;
+    overflow-x: hidden;
+}
+
+.heading{
+    font-size: 40px;
+    font-family: 'Nunito', sans-serif;
+    color: var(--dark-grey);
+}
+
+.heading hr{
+    width: 100%;
+    height: 2px;
+    background-color: var(--secondary-color);
+    border: none;
+}
+
+.info{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px 50px;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 40px 10px;
+}
+
+.skill .info .box{
+    width:  90px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 6px;
+    font-weight: bolder;
+    padding: 20px 40px;
+    box-shadow: -2px 5px 10px var(--grey);
+    border-radius: 10px;
+    background-color: var(--white);
+}
+
+.skill .info .box .skill_logo{
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+}
+
+.skill .info .box .skill_logo svg{
+    color: var(--white);
+}
+
+.skill .info .box p{
+    margin-top: 10px;
+    font-size: 15px;
+    color: var(--primary-color);
+}
+
+.skill .info .box:nth-of-type(even){
+    background-color: var(--primary-color);
+}
+
+.skill .info .box:nth-of-type(even) p{
+    color: var(--white);
+}
+
+.skill .info .box:nth-of-type(even) .skill_logo{
+    background-color: var(--white);
+}
+
+.skill .info .box:nth-of-type(even) .skill_logo svg{
+    color: var(--primary-color);
+}
+
+.skill .info .box:hover{
+    box-shadow: -2px 5px 10px var(--dark-grey);
+}
+
+.work .info{
+    gap: 35px 5px;
+}
+
+.work .info .card{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(1px);
+    visibility: visible;
+}
+
+.work .info .card:nth-child(1){
+    background-image: url("./img/work1.png");
+}
+
+.work .info .card:nth-child(2){
+    background-image: url("./img/work2.png");
+}
+
+.work .info .card:nth-child(3){
+    background-image: url("./img/work3.png");
+}
+
+.work .info .card:nth-child(4){
+    background-image: url("./img/work4.png");
+}
+
+.work .info .card:nth-child(5){
+    background-image: url("./img/work5.png");
+}
+
+.work .info .box{
+    width: 325px;
+    height: 225px;
+    padding: 25px;
+    visibility: hidden;
+    background-color: #181717b4;
+    color: var(--white);
+}
+
+.work .info .box p {
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 10px;
+}
+
+.work .info .box span p {
+    font-weight: bold;
+    color: #c9c9c9;
+    margin: 10px 0;
+}
+
+.work .info .box a {
+    text-decoration: none;
+    color: #c9c9c9;
+}
+
+.work .info .card:hover{
+    filter: blur(0px);
+}
+
+.work .info .card:hover .box{
+    visibility: visible;
+}
+
+
+.expirence .info .card{
+    box-shadow: -16px -16px 0px var(--card1);
+    border-radius: 10px;
+}
+
+.expirence .info .card .box{
+    width: 375px;
+    height: 275px;
+    padding: 20px;
+    background-color: var(--secondary-color);
+    box-shadow: -8px -8px 0px var(--card2);
+    border-radius: 10px;
+}
+
+.expirence .info .card .box p{
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.expirence .info .card .box span p{
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.contact .info .card{
+    display: flex;
+    justify-content: center;
+    column-gap: 100px;
+    align-items: center;
+    flex-direction: row;
+}
+
+.contact .info .card .arrow{
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px var(--grey);
+    font-size: 30px;
+    color: var(--secondary-color);
+}
+
+.contact .info .card div h1{
+    font-size: 38px;
+}
+
+.contact .info .card div p{
+    font-size: 15px;
+}
+
+.contact .info .card1{
+    display: flex;
+    flex-direction: column;
+}
+
+.contact .info .card1 .mail{
+    background-color: var(--secondary-color) !important;
+}
+
+.contact .info .card1 .mail a{
+    background-color: var(--secondary-color) !important;
+}
+
+.contact .info .card1 #resume, .contact .info .card1 #resume a{
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.curve{
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    background-color: var(--white);
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+footer{
+    text-align: center;
+    background-color: var(--secondary-color);
+    padding: 150px 10px 30px 10px;
+}
+
+footer .text{
+    font-size: 40px;
+    font-family: 'Nunito', sans-serif;
+}
+
+footer .social{
+    display: flex;
+    justify-content: center;
+    column-gap: 30px;
+    margin: 40px auto;
+}
+
+footer .social a{
+    font-size: 15px;
+    font-family: 'Nunito', sans-serif;
+    color: var(--white);
+    font-weight: 400;
+    text-decoration: none;
+}
+
+footer .end_text{
+    font-size: 10px;
+    font-weight: bold;
+}
