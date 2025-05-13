@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Define gradients -->
+  <defs>
+    <linearGradient id="buildingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2196F3" />
+      <stop offset="100%" stop-color="#0d47a1" />
+    </linearGradient>
+    <linearGradient id="roofGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#64b5f6" />
+      <stop offset="100%" stop-color="#1976d2" />
+    </linearGradient>
+    <linearGradient id="doorGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff5252" />
+      <stop offset="100%" stop-color="#b71c1c" />
+    </linearGradient>
+    <linearGradient id="boltGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffeb3b" />
+      <stop offset="100%" stop-color="#ff9800" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="50" cy="50" r="40" fill="#f5f5f5" />
+  
+  <!-- Building with roof -->
+  <rect x="32" y="35" width="36" height="50" fill="url(#buildingGradient)" rx="3" />
+  <path d="M30,35 L50,15 L70,35 Z" fill="url(#roofGradient)" />
+  
+  <!-- Windows -->
+  <rect x="38" y="40" width="8" height="8" fill="white" rx="1" opacity="0.9" />
+  <rect x="54" y="40" width="8" height="8" fill="white" rx="1" opacity="0.9" />
+  <rect x="38" y="53" width="8" height="8" fill="white" rx="1" opacity="0.9" />
+  <rect x="54" y="53" width="8" height="8" fill="white" rx="1" opacity="0.9" />
+  <rect x="38" y="66" width="8" height="8" fill="white" rx="1" opacity="0.9" />
+  <rect x="54" y="66" width="8" height="8" fill="white" rx="1" opacity="0.9" />
+  
+  <!-- Door -->
+  <rect x="44" y="65" width="12" height="20" fill="url(#doorGradient)" rx="2" />
+  <circle cx="50" cy="75" r="1.2" fill="#f5f5f5" />
+  
+  <!-- Electricity bolt -->
+  <path d="M74,30 L68,48 L76,48 L65,70 L71,52 L63,52 Z" fill="url(#boltGradient)" />
+</svg> 
