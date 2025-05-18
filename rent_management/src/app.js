@@ -124,6 +124,41 @@ const downloadBillAsImage = (billElement, bill, showNotification) => {
   tempElement.style.top = '-9999px';
   document.body.appendChild(tempElement);
   
+  // Add month/year to the top-left of the card
+  try {
+    // Extract month and year from bill date
+    const billDate = new Date(bill.date);
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const monthYear = `${monthNames[billDate.getMonth()]} ${billDate.getFullYear()}`;
+    
+    // Find the card content element to add the month/year to
+    const cardContent = tempElement.querySelector('.MuiCardContent-root');
+    if (cardContent && cardContent.firstChild) {
+      // Create the month/year element
+      const monthYearElem = document.createElement('div');
+      monthYearElem.className = 'bill-month-year';
+      monthYearElem.innerText = monthYear;
+      
+      // Style the month/year text
+      monthYearElem.style.fontSize = '10px';
+      monthYearElem.style.color = '#757575';
+      monthYearElem.style.position = 'absolute';
+      monthYearElem.style.top = '12px';
+      monthYearElem.style.left = '12px';
+      
+      // Add it as the first element in the card content
+      cardContent.insertBefore(monthYearElem, cardContent.firstChild);
+      
+      // Add some padding to the rental name to ensure it doesn't overlap
+      const rentalName = cardContent.querySelector('h6');
+      if (rentalName) {
+        rentalName.style.paddingTop = '10px';
+      }
+    }
+  } catch (err) {
+    console.error('Error adding month/year label:', err);
+  }
+  
   // Apply customized format for image download
   // 1. Remove Meter Type
   const meterTypeElem = tempElement.querySelector('.meter-type');
