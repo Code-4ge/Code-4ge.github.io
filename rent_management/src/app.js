@@ -107,6 +107,138 @@ const calculateBillingCycleDays = (readingDate) => {
 // Test with your specific date
 console.log('Debug - Date Calculation Test for 04/30/2025:', calculateBillingCycleDays('2025-04-30'));
 
+// Function to download bill as image
+const downloadBillAsImage = (billElement, bill, showNotification) => {
+  if (!html2canvas) {
+    console.error('html2canvas library is not loaded');
+    showNotification('Error: Image download functionality not available', 'error');
+    return;
+  }
+  
+  showNotification('Generating bill image...', 'info');
+  
+  // Create a temporary clone of the bill card with customized format
+  const tempElement = billElement.cloneNode(true);
+  tempElement.style.position = 'absolute';
+  tempElement.style.left = '-9999px';
+  tempElement.style.top = '-9999px';
+  document.body.appendChild(tempElement);
+  
+  // Apply customized format for image download
+  // 1. Remove Meter Type
+  const meterTypeElem = tempElement.querySelector('.meter-type');
+  if (meterTypeElem) {
+    meterTypeElem.style.display = 'none';
+  }
+  
+  // 2. Look at the meter-type text to determine which meter is being used
+  let isSub = false;
+  if (meterTypeElem) {
+    isSub = meterTypeElem.textContent.includes('Sub Meter');
+  }
+  
+  // Get the correct previous reading based on meter type
+  const previousReading = isSub ? bill.subMeterReading.previous : bill.mainMeterReading.previous;
+  const currentReading = previousReading + bill.units;
+  
+  const meterReadingsElems = tempElement.querySelectorAll('.meter-readings');
+  meterReadingsElems.forEach(elem => {
+    elem.innerText = `Previous: ${previousReading} → Current: ${currentReading}`;
+  });
+  
+  // 3. Remove Cost per Unit
+  const costPerUnitElem = tempElement.querySelector('.cost-per-unit');
+  if (costPerUnitElem) {
+    costPerUnitElem.style.display = 'none';
+  }
+  
+  // 4. Combine electricity and motor charges
+  const electricityCostElems = tempElement.querySelectorAll('.electricity-cost');
+  const electricityCostValueElems = tempElement.querySelectorAll('.electricity-cost-value');
+  const motorCostElems = tempElement.querySelectorAll('.motor-cost');
+  
+  const totalElectricity = bill.electricityCost + bill.motorCost;
+  
+  if (electricityCostElems.length > 0) {
+    electricityCostElems.forEach(elem => {
+      elem.innerText = 'Electricity';
+    });
+  }
+  
+  if (electricityCostValueElems.length > 0) {
+    electricityCostValueElems.forEach(elem => {
+      // Set the main electricity cost text
+      elem.innerText = `${formatCurrency(totalElectricity)}`;
+      
+      try {
+        // Find parent box that contains this value
+        const rowBox = elem.closest('[class*="MuiBox-root"]');
+        if (rowBox && rowBox.parentNode) {
+          // Create breakdown text element
+          const breakdownElem = document.createElement('div');
+          breakdownElem.className = 'electricity-breakdown';
+          breakdownElem.innerText = `(${formatCurrency(bill.electricityCost)} + ${formatCurrency(bill.motorCost)})`;
+          
+          // Style the breakdown text
+          breakdownElem.style.fontSize = '10px';
+          breakdownElem.style.color = '#757575';
+          breakdownElem.style.textAlign = 'right';
+          breakdownElem.style.marginTop = '-4px';
+          breakdownElem.style.marginBottom = '6px';
+          
+          // Insert after the row
+          if (rowBox.nextSibling) {
+            rowBox.parentNode.insertBefore(breakdownElem, rowBox.nextSibling);
+          } else {
+            rowBox.parentNode.appendChild(breakdownElem);
+          }
+        }
+      } catch (err) {
+        console.error('Error adding electricity breakdown:', err);
+      }
+    });
+  }
+  
+  if (motorCostElems.length > 0) {
+    motorCostElems.forEach(elem => {
+      elem.style.display = 'none';
+    });
+  }
+  
+  // Remove the action buttons from the clone
+  const actionButtons = tempElement.querySelectorAll('.MuiCardActions-root');
+  actionButtons.forEach(button => {
+    button.style.display = 'none';
+  });
+  
+  const options = {
+    scale: 2, // Higher scale for better quality
+    useCORS: true,
+    backgroundColor: '#ffffff',
+    logging: false
+  };
+  
+  html2canvas(tempElement, options).then(canvas => {
+    const imgData = canvas.toDataURL('image/png');
+    const link = document.createElement('a');
+    link.download = `${bill.rentalName.replace(/\s+/g, '_')}_bill.png`;
+    link.href = imgData;
+    link.click();
+    showNotification('Bill downloaded successfully!', 'success');
+    
+    // Clean up the temporary element
+    document.body.removeChild(tempElement);
+  }).catch(err => {
+    console.error('Error generating bill image:', err);
+    showNotification('Error downloading bill image', 'error');
+    
+    // Clean up the temporary element
+    if (document.body.contains(tempElement)) {
+      document.body.removeChild(tempElement);
+    }
+  });
+};
+
 // App component
 function App() {
   const [activeTab, setActiveTab] = React.useState(0);
@@ -335,26 +467,23 @@ function App() {
     // Determine the correct readings based on meter type
     const isSub = rentals.find(r => r.id === bill.rentalId)?.meterType === 'sub';
     const previousReading = isSub ? bill.subMeterReading.previous : bill.mainMeterReading.previous;
-    // const currentReading = isSub ? bill.subMeterReading.adjusted : bill.mainMeterReading.current;
+    const currentReading = isSub ? (bill.subMeterReading.previous + bill.units) : bill.mainMeterReading.current;
     // const actualCurrent = isSub ? bill.subMeterReading.current : bill.mainMeterReading.current;
     
     // Calculate the electricity + motor total
     const electricityMotorTotal = bill.electricityCost + bill.motorCost;
     
     const message = `🏠 *${monthYear}, Rent Bill for ${bill.rentalName}*
-> Reading: ${previousReading} → ${previousReading + bill.units}
+> Reading: ${previousReading} → ${currentReading}
 > Units Used: ${Math.round(bill.units)}
 > Rate: ${formatCurrency(bill.costPerUnit)}/unit
 
 _Charges:_
-> Electricity Charges: ${formatCurrency(bill.electricityCost)} + ${formatCurrency(bill.motorCost)} = ${formatCurrency(electricityMotorTotal)}
-> Water Charges: ${formatCurrency(bill.waterBill)}
+> Electricity: ${formatCurrency(bill.electricityCost)}
+> Motor Charges: ${formatCurrency(bill.motorCost)}
+> Water: ${formatCurrency(bill.waterBill)}
 > Rent: ${formatCurrency(bill.monthlyRent)}
 💰 *Total Due: ${formatCurrency(bill.totalBill)}*
-
-*Payment Options:*
-1️⃣ UPI: panmandneeraj@oksbi
-2️⃣ Phone Pay: 8793044804
 
 Thank you!`;
 
@@ -986,7 +1115,7 @@ Thank you!`;
                           { mb: 2 },
                           React.createElement(
                             Typography,
-                            { variant: 'body2', color: 'textSecondary' },
+                            { variant: 'body2', color: 'textSecondary', className: 'meter-type' },
                             `Meter Type: ${rentals.find(r => r.id === bill.rentalId)?.meterType === 'sub' ? 'Sub Meter' : 'Main Meter - Residual'}`
                           ),
                           React.createElement(
@@ -1003,9 +1132,9 @@ Thank you!`;
                                 null,
                                 React.createElement(
                                   Typography,
-                                  { variant: 'body2', color: 'textSecondary' },
+                                  { variant: 'body2', color: 'textSecondary', className: 'meter-readings' },
                                   `Previous: ${bill.subMeterReading.previous} → Adjusted Current: ${bill.subMeterReading.adjusted} (${bill.subMeterReading.current})`
-                                ),
+                                )
                                 // bill.subMeterReading.adjusted !== bill.subMeterReading.current && React.createElement(
                                 //   Typography,
                                 //   { variant: 'body2', color: 'textSecondary', fontStyle: 'italic' },
@@ -1015,7 +1144,7 @@ Thank you!`;
                             :
                               React.createElement(
                                 Typography,
-                                { variant: 'body2', color: 'textSecondary' },
+                                { variant: 'body2', color: 'textSecondary', className: 'meter-readings' },
                                 `Previous: ${bill.mainMeterReading.previous} → Current: ${bill.mainMeterReading.current}`
                               )
                           ),
@@ -1026,7 +1155,7 @@ Thank you!`;
                           ),
                           React.createElement(
                             Typography,
-                            { variant: 'body2', color: 'textSecondary' },
+                            { variant: 'body2', color: 'textSecondary', className: 'cost-per-unit' },
                             `Cost per Unit: ${formatCurrency(bill.costPerUnit)}`
                           )
                         ),
@@ -1039,12 +1168,12 @@ Thank you!`;
                             { display: 'flex', justifyContent: 'space-between', my: 1 },
                             React.createElement(
                               Typography,
-                              { variant: 'body1' },
+                              { variant: 'body1', className: 'electricity-cost' },
                               'Electricity'
                             ),
                             React.createElement(
                               Typography,
-                              { variant: 'body1' },
+                              { variant: 'body1', className: 'electricity-cost-value' },
                               formatCurrency(bill.electricityCost)
                             )
                           ),
@@ -1064,7 +1193,7 @@ Thank you!`;
                           ),
                           React.createElement(
                             Box,
-                            { display: 'flex', justifyContent: 'space-between', my: 1 },
+                            { display: 'flex', justifyContent: 'space-between', my: 1, className: 'motor-cost' },
                             React.createElement(
                               Typography,
                               { variant: 'body1' },
@@ -1110,15 +1239,39 @@ Thank you!`;
                       React.createElement(
                         CardActions,
                         null,
-                        bill.phone && React.createElement(
-                          Button,
-                          { 
-                            size: 'small', 
-                            color: 'primary',
-                            onClick: () => sendWhatsApp(bill),
-                            startIcon: React.createElement('span', { className: 'material-symbols-outlined' }, 'send')
-                          },
-                          'Send on WhatsApp'
+                        React.createElement(
+                          Box,
+                          { display: 'flex', gap: 1, width: '100%', justifyContent: 'space-between' },
+                          React.createElement(
+                            Button,
+                            { 
+                              size: 'small', 
+                              color: 'secondary',
+                              onClick: (e) => {
+                                // Get the parent Card element to capture
+                                const cardElement = e.currentTarget.closest('.bill-card');
+                                if (cardElement) {
+                                  // Temporarily add a class to improve the image quality
+                                  cardElement.classList.add('capturing');
+                                  downloadBillAsImage(cardElement, bill, showNotification);
+                                  // Remove the class after a delay
+                                  setTimeout(() => cardElement.classList.remove('capturing'), 500);
+                                }
+                              },
+                              startIcon: React.createElement('span', { className: 'material-symbols-outlined' }, 'download')
+                            },
+                            'Download'
+                          ),
+                          bill.phone && React.createElement(
+                            Button,
+                            { 
+                              size: 'small', 
+                              color: 'primary',
+                              onClick: () => sendWhatsApp(bill),
+                              startIcon: React.createElement('span', { className: 'material-symbols-outlined' }, 'send')
+                            },
+                            'Send on WhatsApp'
+                          )
                         )
                       )
                     )

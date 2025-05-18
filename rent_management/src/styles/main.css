@@ -93,6 +93,22 @@ body {
 
 .bill-card {
   border-left: 4px solid var(--success-color);
+  transition: all 0.2s ease;
+}
+
+/* Styles for bill card when being captured as image */
+.bill-card.capturing {
+  box-shadow: none !important;
+  transform: none !important;
+  page-break-inside: avoid;
+  background-color: white !important;
+  border: 1px solid #eaeaea !important;
+  border-left: 4px solid var(--success-color) !important;
+  padding: 8px !important;
+}
+
+.bill-card.capturing .MuiCardActions-root {
+  display: none !important;
 }
 
 .summary-info {
